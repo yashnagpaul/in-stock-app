@@ -106,11 +106,12 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 145px;
+  height: 232px;
 }
 
 @media screen and (min-width: 768px) {
   .header {
+    height: 180px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -132,11 +133,15 @@ a:hover {
 
 .header__logo {
   padding: 25px;
+  margin-left: 30%;
+  margin-right: auto;
 }
 
 @media screen and (min-width: 768px) {
   .header__logo {
     margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -190,7 +195,8 @@ a:hover {
   top: 135px;
   left: 7%;
   width: 86%;
-  margin-bottom: 1.5%;
+  margin-top: 4px;
+  margin-bottom: 14px;
   border: 1px solid lightgray;
 }
 
@@ -216,6 +222,14 @@ a:hover {
 
 .add-warehouse__subheading {
   margin-bottom: 25px;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .add-warehouse__subheading {
+    margin-top: 5px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -2321,8 +2335,8 @@ a:hover {
   width: 91.4%;
   position: absolute;
   left: 4.27%;
-  bottom: 50.89%;
-  background: #FFFFFF;
+  bottom: 1px;
+  background: #ffffff;
   -webkit-box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
           box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
@@ -2331,7 +2345,6 @@ a:hover {
 @media screen and (min-width: 768px) {
   .item__card {
     height: 292px;
-    bottom: 62.5%;
   }
 }
 
@@ -2380,7 +2393,7 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
   padding: 0 5%;
-  border-bottom: 1px solid #BDC5D5;
+  border-bottom: 1px solid #bdc5d5;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -2413,7 +2426,7 @@ a:hover {
 @media screen and (min-width: 768px) {
   .item__section-two {
     width: 50%;
-    border-left: 1px solid #BDC5D5;
+    border-left: 1px solid #bdc5d5;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     padding: 0 10%;
@@ -2439,7 +2452,7 @@ a:hover {
   font-weight: 600;
   font-size: 28px;
   line-height: 36px;
-  color: #13182C;
+  color: #13182c;
   margin-left: 5%;
   width: 350px;
 }

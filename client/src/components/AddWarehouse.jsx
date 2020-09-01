@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import errorIcon from "../assets/Icons/error-24px.svg";
 import arrow from "../assets/Icons/arrow_back-24px.svg";
-import { link, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class AddWarehouse extends React.Component {
   constructor(props) {
@@ -57,9 +57,9 @@ class AddWarehouse extends React.Component {
         city: city,
         country: country,
         contact: {
-          contactName: contactName,
+          name: contactName,
           position: position,
-          number: number,
+          phone: number,
           email: email,
         },
       });
@@ -112,12 +112,9 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__name"
               placeholder="Warehouse Name"
             />
-
             <div
               className="add-warehouse__error-validation"
-              style={{
-                display: this.state.nameError ? "inline-block" : "none",
-              }}
+              style={{ display: this.state.nameError ? "flex" : "none" }}
             >
               <img src={errorIcon} alt="error" />
               This field is required!
@@ -167,6 +164,7 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__error-validation"
               style={{ display: this.state.countryError ? "flex" : "none" }}
             >
+              <img src={errorIcon} alt="error" />
               This field is required!
             </div>
           </div>
@@ -187,6 +185,7 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__error-validation"
               style={{ display: this.state.contactNameError ? "flex" : "none" }}
             >
+              <img src={errorIcon} alt="error" />
               This field is required!
             </div>
 
@@ -202,6 +201,7 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__error-validation"
               style={{ display: this.state.positionError ? "flex" : "none" }}
             >
+              <img src={errorIcon} alt="error" />
               This field is required!
             </div>
 
@@ -217,6 +217,7 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__error-validation"
               style={{ display: this.state.numberError ? "flex" : "none" }}
             >
+              <img src={errorIcon} alt="error" />
               This field is required!
             </div>
 
@@ -232,13 +233,16 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__error-validation"
               style={{ display: this.state.emailError ? "flex" : "none" }}
             >
+              <img src={errorIcon} alt="error" />
               This field is required!
             </div>
           </div>
         </div>
 
         <div className="add-warehouse__btn-container">
-          <button className="add-warehouse__cancel-btn">Cancel</button>
+          <Link to="/warehouses">
+            <button className="add-warehouse__cancel-btn">Cancel</button>
+          </Link>
           <button type="submit" className="add-warehouse__save-add-btn">
             + Add Warehouse
           </button>

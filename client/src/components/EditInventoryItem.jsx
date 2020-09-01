@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import arrow from "../assets/Icons/arrow_back-24px.svg";
-import { link, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class EditInventoryItem extends React.Component {
   constructor(props) {
@@ -51,10 +51,30 @@ class EditInventoryItem extends React.Component {
 
   saveHandler(event) {
     event.preventDefault();
+
+    let warehouseIdentity;
+
+    if (this.form.current.warehouse.value === "Manhattan")
+      warehouseIdentity = "2922c286-16cd-4d43-ab98-c79f698aeab0";
+    if (this.form.current.warehouse.value === "King West")
+      warehouseIdentity = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+    if (this.form.current.warehouse.value === "Granville")
+      warehouseIdentity = "90ac3319-70d1-4a51-b91d-ba6c2464408c";
+    if (this.form.current.warehouse.value === "San Fran")
+      warehouseIdentity = "bfc9bea7-66f1-44e9-879b-4d363a888eb4";
+    if (this.form.current.warehouse.value === "Santa Monica")
+      warehouseIdentity = "89898957-04ba-4bd0-9f5c-a7aea7447963";
+    if (this.form.current.warehouse.value === "Seattle")
+      warehouseIdentity = "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7";
+    if (this.form.current.warehouse.value === "Boston")
+      warehouseIdentity = "150a36cf-f38e-4f59-8e31-39974207372d";
+    if (this.form.current.warehouse.value === "Montreal")
+      warehouseIdentity = "bb1491eb-30e6-4728-a5fa-72f89feaf622";
+
     const itemToEdit = {
       id: this.props.match.params.id,
 
-      warehouseID: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+      warehouseID: warehouseIdentity,
       name: this.form.current.name.value,
       description: this.form.current.description.value,
       category: this.form.current.category.value,
@@ -116,6 +136,7 @@ class EditInventoryItem extends React.Component {
               className="add-warehouse__name"
               value={this.state.name}
               onInput={this.nameUpdated}
+              required
             />
 
             <label htmlFor="description">Description</label>
@@ -125,6 +146,7 @@ class EditInventoryItem extends React.Component {
               className="add-warehouse__description"
               value={this.state.description}
               onInput={this.descriptionUpdated}
+              required
             />
 
             <label htmlFor="category">Category</label>
@@ -155,6 +177,7 @@ class EditInventoryItem extends React.Component {
                 className="add-warehouse__radio"
                 value="In Stock"
                 onInput={this.statusUpdated}
+                required
               />
               <label htmlFor="status">In Stock</label>
 
@@ -164,6 +187,7 @@ class EditInventoryItem extends React.Component {
                 className="add-warehouse__radio"
                 value="Out of Stock"
                 onInput={this.statusUpdated}
+                required
               />
               <label htmlFor="status">Out of Stock</label>
             </div>
@@ -184,18 +208,30 @@ class EditInventoryItem extends React.Component {
             </div>
 
             <label htmlFor="warehouse">Warehouse</label>
-            <input
+            <select
               type="text"
               name="warehouse"
-              className="add-warehouse__number"
-              value={this.state.warehouse}
-              onChange={this.warehouseUpdated}
-            />
+              className="add-warehouse__category"
+              placeholder="Please select"
+            >
+              <option value="Manhattan">Manhattan</option>
+              <option value="King West">King West</option>
+              <option value="Granville">Granville</option>
+              <option value="San Fran">San Fran</option>
+              <option value="Santa Monica">Santa Monica</option>
+              <option value="Seattle">Seattle</option>
+              <option value="Boston">Boston</option>
+              <option value="Montreal">Montreal</option>
+            </select>
           </div>
         </div>
         <div className="add-warehouse__btn-container">
-          <button className="add-warehouse__cancel-btn">Cancel</button>
-          <button className="add-warehouse__save-add-btn">Save</button>
+          <Link to="/inventory">
+            <button className="add-warehouse__cancel-btn">Cancel</button>
+          </Link>
+          <button type="submit" className="add-warehouse__save-add-btn">
+            Save
+          </button>
         </div>
       
       </form>

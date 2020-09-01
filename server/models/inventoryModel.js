@@ -37,9 +37,29 @@ function patchInventory(req, res) {
 //ADD NEW INVENTORY
 function postInventory(req, res) {
   const inventoryData = JSON.parse(fs.readFileSync(inventoryFile));
+
+  let warehouseIdentity;
+
+  if (req.body.warehouse === "Manhattan")
+    warehouseIdentity = "2922c286-16cd-4d43-ab98-c79f698aeab0";
+  if (req.body.warehouse === "King West")
+    warehouseIdentity = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+  if (req.body.warehouse === "Granville")
+    warehouseIdentity = "90ac3319-70d1-4a51-b91d-ba6c2464408c";
+  if (req.body.warehouse === "San Fran")
+    warehouseIdentity = "bfc9bea7-66f1-44e9-879b-4d363a888eb4";
+  if (req.body.warehouse === "Santa Monica")
+    warehouseIdentity = "89898957-04ba-4bd0-9f5c-a7aea7447963";
+  if (req.body.warehouse === "Seattle")
+    warehouseIdentity = "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7";
+  if (req.body.warehouse === "Boston")
+    warehouseIdentity = "150a36cf-f38e-4f59-8e31-39974207372d";
+  if (req.body.warehouse === "Montreal")
+    warehouseIdentity = "bb1491eb-30e6-4728-a5fa-72f89feaf622";
+
   const itemToPost = {
     id: req.body.id,
-    warehouseID: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+    warehouseID: warehouseIdentity,
     itemName: req.body.name,
     description: req.body.description,
     category: req.body.category,
@@ -47,7 +67,7 @@ function postInventory(req, res) {
     quantity: req.body.quantity,
     warehouseName: req.body.warehouse,
   };
-  inventoryData.push(itemToPost);
+  inventoryData.unshift(itemToPost);
   fs.writeFileSync(inventoryFile, JSON.stringify(inventoryData));
   res.send(inventoryData);
 }

@@ -2,9 +2,10 @@
   background-color: $instock-black;
   display: flex;
   flex-direction: column;
-  min-height: 145px;
+  height: 232px;
 
   @include tablet {
+    height: 180px;
     flex-direction: row;
     justify-content: space-between;
     // width: 88%;
@@ -19,8 +20,12 @@
 
   &__logo {
     padding: 25px;
+    margin-left: 30%;
+    margin-right: auto;
     @include tablet {
       margin-top: 8px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 

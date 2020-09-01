@@ -11,76 +11,81 @@ class EditWarehouse extends React.Component {
   }
 
   state = {
-    itemDetails: {
-      name: "loading",
-      address: "loading",
-      city: "loading",
-      country: "loading",
-      contactName: "loading",
-      position: "loading",
-      number: "loading",
-      email: "loading",
-    },
+    name: "loading",
+    address: "loading",
+    city: "loading",
+    country: "loading",
+    contactName: "loading",
+    position: "loading",
+    number: "loading",
+    email: "loading",
   };
 
   nameUpdated = (e) => {
     const { value } = e.target;
-    this.setState({ itemDetails: { name: value } });
+    this.setState({ name: value });
   };
 
   addressUpdated = (e) => {
     const { value } = e.target;
-    this.setState({ itemDetails: { address: value } });
+    this.setState({ address: value });
   };
   cityUpdated = (e) => {
     const { value } = e.target;
-    this.setState({ itemDetails: { city: value } });
+    this.setState({ city: value });
   };
   countryUpdated = (e) => {
     const { value } = e.target;
-    this.setState({ itemDetails: { country: value } });
+    this.setState({ country: value });
   };
 
   contactNameUpdated = (e) => {
     const { value } = e.target;
-    this.setState({ itemDetails: { contactName: value } });
+    this.setState({ contactName: value });
   };
 
   positionUpdated = (e) => {
     const { value } = e.target;
-    this.setState({ itemDetails: { position: value } });
+    this.setState({ position: value });
   };
 
   numberUpdated = (e) => {
     const { value } = e.target;
-    this.setState({ itemDetails: { number: value } });
+    this.setState({ number: value });
   };
 
   emailUpdated = (e) => {
     const { value } = e.target;
-    this.setState({ itemDetails: { email: value } });
+    this.setState({ email: value });
   };
 
   saveHandler(event) {
     event.preventDefault();
 
-    const itemToEdit = {
-      id: this.props.match.params.id,
-
-      name: this.form.current.name.value,
-      address: this.form.current.address.value,
-      city: this.form.current.city.value,
-      country: this.form.current.country.value,
-      contactName: this.form.current.contact_name.value,
-      position: this.form.current.position.value,
-      number: this.form.current.number.value,
-      email: this.form.current.email.value,
-    };
+    let id = this.props.match.params.id;
+    let name = this.form.current.name.value;
+    let address = this.form.current.address.value;
+    let city = this.form.current.city.value;
+    let country = this.form.current.country.value;
+    let contactName = this.form.current.contact_name.value;
+    let position = this.form.current.position.value;
+    let number = this.form.current.number.value;
+    let email = this.form.current.email.value;
 
     axios
       .put(
         `http://localhost:8080/api/warehouses/${this.props.match.params.id}`,
-        itemToEdit
+        {
+          id: id,
+          name: name,
+          address: address,
+          city: city,
+          country: country,
+          contactName: contactName,
+          position: position,
+          phone: number,
+          email: email,
+        }
       )
       .then(window.alert("Changes have been saved."));
   }
@@ -96,16 +101,14 @@ class EditWarehouse extends React.Component {
       .then((result) =>
         // console.log(result)
         this.setState({
-          itemDetails: {
-            name: result[0].name,
-            address: result[0].address,
-            city: result[0].city,
-            country: result[0].country,
-            contactName: result[0].contact.name,
-            position: result[0].contact.position,
-            number: result[0].contact.phone,
-            email: result[0].contact.email,
-          },
+          name: result[0].name,
+          address: result[0].address,
+          city: result[0].city,
+          country: result[0].country,
+          contactName: result[0].contact.name,
+          position: result[0].contact.position,
+          number: result[0].contact.phone,
+          email: result[0].contact.email,
         })
       );
   }
@@ -131,8 +134,9 @@ class EditWarehouse extends React.Component {
               type="text"
               name="name"
               className="add-warehouse__name"
-              value={this.state.itemDetails.name}
+              value={this.state.name}
               onInput={this.nameUpdated}
+              required
             />
 
             <label htmlFor="street-address">Street Address</label>
@@ -140,8 +144,9 @@ class EditWarehouse extends React.Component {
               type="text"
               name="address"
               className="add-warehouse__street-address"
-              value={this.state.itemDetails.address}
+              value={this.state.address}
               onInput={this.addressUpdated}
+              required
             />
 
             <label htmlFor="city">City</label>
@@ -149,8 +154,9 @@ class EditWarehouse extends React.Component {
               type="text"
               name="city"
               className="add-warehouse__city"
-              value={this.state.itemDetails.city}
+              value={this.state.city}
               onInput={this.cityUpdated}
+              required
             />
 
             <label htmlFor="country">Country</label>
@@ -158,8 +164,9 @@ class EditWarehouse extends React.Component {
               type="text"
               name="country"
               className="add-warehouse__country"
-              value={this.state.itemDetails.country}
+              value={this.state.country}
               onInput={this.countryUpdated}
+              required
             />
           </div>
 
@@ -172,8 +179,9 @@ class EditWarehouse extends React.Component {
               type="text"
               name="contact_name"
               className="add-warehouse__contact"
-              value={this.state.itemDetails.contactName}
+              value={this.state.contactName}
               onInput={this.contactNameUpdated}
+              required
             />
 
             <label htmlFor="position">Position</label>
@@ -181,8 +189,9 @@ class EditWarehouse extends React.Component {
               type="text"
               name="position"
               className="add-warehouse__position"
-              value={this.state.itemDetails.position}
+              value={this.state.position}
               onInput={this.positionUpdated}
+              required
             />
 
             <label htmlFor="number">Number</label>
@@ -190,8 +199,9 @@ class EditWarehouse extends React.Component {
               type="text"
               name="number"
               className="add-warehouse__number"
-              value={this.state.itemDetails.number}
+              value={this.state.number}
               onInput={this.numberUpdated}
+              required
             />
 
             <label htmlFor="email">Email</label>
@@ -199,14 +209,19 @@ class EditWarehouse extends React.Component {
               type="text"
               name="email"
               className="add-warehouse__email"
-              value={this.state.itemDetails.email}
+              value={this.state.email}
               onInput={this.emailUpdated}
+              required
             />
           </div>
         </div>
         <div className="add-warehouse__btn-container">
-          <button className="add-warehouse__cancel-btn">Cancel</button>
-          <button className="add-warehouse__save-add-btn">Save</button>
+          <Link to="/warehouses">
+            <button className="add-warehouse__cancel-btn">Cancel</button>
+          </Link>
+          <button type="submit" className="add-warehouse__save-add-btn">
+            Save
+          </button>
         </div>
       </form>
     );
