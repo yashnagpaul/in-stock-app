@@ -233,6 +233,7 @@ class EditInventoryItem extends React.Component {
             Save
           </button>
         </div>
+      
       </form>
     );
   }

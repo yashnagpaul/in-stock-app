@@ -160,6 +160,9 @@ class ListWarehouses extends Component {
                 ))}
             </div>
           </div>
+          <div className="list-inventory__footer">
+            &#169;InStock Inc. All Rights Reserved.
+          </div>
         </div>
         {this.state.showPopUp === true ? (
           <DeleteWarehouse

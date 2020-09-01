@@ -373,6 +373,7 @@ a:hover {
   top: 135px;
   background-color: white;
   left: 7%;
+  margin-bottom: 150px;
 }
 
 @media screen and (min-width: 768px) {
@@ -392,6 +393,7 @@ a:hover {
 
 .list-warehouse__header-section {
   border-bottom: 1px solid #bdc5d5;
+  margin: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -514,7 +516,7 @@ a:hover {
 .list-warehouse__search-icon {
   position: absolute;
   right: 15px;
-  top: 77px;
+  top: -40px;
 }
 
 @media screen and (min-width: 768px) {
@@ -522,6 +524,10 @@ a:hover {
     right: 197px;
     top: 8px;
   }
+}
+
+.list-warehouse__content-section {
+  margin: 0;
 }
 
 .list-warehouse__content-container {
@@ -592,6 +598,10 @@ a:hover {
 
 .list-warehouse__warehouse-card-container:hover {
   background: rgba(46, 102, 230, 0.07);
+}
+
+.list-warehouse__warehouse-card-container:last-child {
+  border-bottom: none;
 }
 
 .list-warehouse__warehouse-card {
@@ -1069,6 +1079,7 @@ a:hover {
   top: 135px;
   background-color: white;
   left: 7%;
+  margin-bottom: 150px;
 }
 
 @media screen and (min-width: 768px) {
@@ -1088,6 +1099,7 @@ a:hover {
 
 .items-warehouse__header-section {
   border-bottom: 1px solid #bdc5d5;
+  margin: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -1335,6 +1347,10 @@ a:hover {
   background-color: #13182c;
 }
 
+.items-warehouse__content-section {
+  margin: 0;
+}
+
 .items-warehouse__content-container {
   width: 100%;
   margin: 0 auto;
@@ -1403,6 +1419,10 @@ a:hover {
 
 .itemcard-warehouse__warehouse-card-container:hover {
   background: rgba(46, 102, 230, 0.07);
+}
+
+.itemcard-warehouse__warehouse-card-container:last-child {
+  border-bottom: none;
 }
 
 .itemcard-warehouse__warehouse-card {
@@ -1498,6 +1518,18 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.itemcard-warehouse__warehouse-name > img {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.itemcard-warehouse__warehouse-name > img:hover {
+  -webkit-transform: translate(4px, 0px);
+          transform: translate(4px, 0px);
 }
 
 .itemcard-warehouse__warehouse-name > a {

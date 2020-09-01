@@ -6,6 +6,11 @@
         &:hover {
             background: rgba(46, 102, 230, 0.07);
         }
+
+        
+        &:last-child{
+            border-bottom: none;
+        }
     }
 
     &__warehouse-card {
@@ -75,6 +80,14 @@
         color: $instock-indigo;
         display: flex;
         align-items: center;
+
+&>img{
+    transition: transform 0.5s;
+
+    &:hover {
+        transform: translate(4px, 0px);
+    }
+}
 
         &>a {
             color: $instock-indigo;

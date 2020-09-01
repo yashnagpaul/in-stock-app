@@ -10,6 +10,7 @@
         top: 135px;
         background-color: white;
         left: 7%;
+        margin-bottom: 150px;
 
         @include tablet {
             top: 90px;
@@ -28,6 +29,7 @@
     &__header-section {
         border-bottom: 1px solid $cloud;
         // margin: 16px 0;
+        margin: 0;
 
 
         @include tablet {
@@ -169,140 +171,7 @@
         width: 50%;
     }
 
-    // &__header {
-    //     margin: 0;
-    //     height: 92px;
 
-    //     &-top {
-    //         margin: 0;
-    //         width: 100%;
-    //         height: 100%;
-    //         border-bottom: 1px solid $blue;
-
-    //         &-container {
-    //             margin: 0 auto;
-    //             width: 86%;
-    //             height: 100%;
-    //             display: flex;
-    //             align-items: center;
-    //             justify-content: flex-start;
-
-    //         }
-    //     }
-    // }
-
-
-
-
-
-
-
-    // &__header-container {
-    //     display: flex;
-    //     flex-direction: column;
-    //     margin: 0 auto;
-    //     width: 86%;
-    //     position: relative;
-
-    //     @include tablet {
-    //         flex-direction: row;
-    //         width: 90.90%;
-    //         justify-content: flex-end;
-    //         align-items: center;
-    //         height: 90px;
-    //         margin: 0;
-    //         left: 4.55%;
-    //     }
-    // }
-
-
-
-    ///////////////////////////////////////////////commented out
-
-    // &__header-top{
-    //     height: 92px;
-    //     margin: 0;
-    //     display: flex;
-    //     justify-content: flex-start;
-    //     align-items: center;
-    //     border-bottom: 1px solid $cloud;
-
-    //     &>h1{
-    //         margin-right: auto;
-    //     }
-    // }
-
-    // &__backlink {
-    //     margin: 0;
-
-    //     &>img {
-    //         margin: 0;
-    //     }
-
-    // }
-
-    // &__header-name {
-    //     margin: 0;
-    //     margin-right: auto;
-    // }
-
-    // &__edit-link {
-    //     margin: 0;
-
-    // }
-
-
-    // &__backlink {
-    //     margin: 0;
-    //     margin-top: 5px;
-    //     margin-right: 3px;
-    // }
-
-    // &__edit-circle {
-    //     height: 36px;
-    //     width: 36px;
-    //     border-radius: 20px;
-    //     background: #2E66E6;
-    //     position: relative;
-
-    //     &>img {
-    //         position: absolute;
-    //         top: 5px;
-    //         right: 5px;
-    //     }
-
-    // }
-
-    // &__header-bottom {
-    //     width: 100%;
-    //     height: 100%;
-    //     background: white;
-
-    //     &-container {
-    //         width: 86%;
-    //         margin: 0 auto;
-    //         background: white;
-    //     }
-    // }
-
-    // &__header-bottom-bottom {
-    //     display: flex;
-    // }
-
-    // &__header-bottom-left {
-    //     width: 50%;
-    // }
-
-    // &__header-bottom-right {
-    //     width: 50%;
-    // }
-
-
-
-    /////////////////////////////////////////////////////////////////
-
-
-    // previous stylesheet
     &__title {
         text-align: left;
         margin: 0;
@@ -386,7 +255,9 @@
         // }
     }
 
-
+&__content-section {
+    margin: 0;
+}
 
     &__content-container {
         width: 100%;
