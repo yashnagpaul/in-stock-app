@@ -21,6 +21,11 @@ class AddNewInventoryItem extends React.Component {
     warehouseError: false,
   };
 
+  statusUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ status: value });
+  };
+
   submitHandler(event) {
     event.preventDefault();
 
@@ -134,14 +139,6 @@ class AddNewInventoryItem extends React.Component {
               <option value="Accessories">Accessories</option>
               <option value="Health">Health</option>
             </select>
-
-            <div
-              className="add-warehouse__error-validation"
-              style={{ display: this.state.categoryError ? "flex" : "none" }}
-            >
-              <img src={errorIcon} alt="error icon" />
-              This field is required!
-            </div>
           </div>
 
           {/* ITEM AVAILABILITY */}
@@ -155,6 +152,7 @@ class AddNewInventoryItem extends React.Component {
                 name="status"
                 className="add-inventory__radio"
                 value="In Stock"
+                onInput={this.statusUpdated}
               />
 
               <label className="radio-label" htmlFor="status">
@@ -166,6 +164,7 @@ class AddNewInventoryItem extends React.Component {
                 name="status"
                 className="add-inventory__radio"
                 value="Out of stock"
+                onInput={this.statusUpdated}
               />
               <label htmlFor="status">Out of Stock</label>
             </div>
@@ -177,20 +176,28 @@ class AddNewInventoryItem extends React.Component {
               This field is required!
             </div>
 
-            <label htmlFor="quantity">Quantity</label>
-            <input
-              type="text"
-              name="quantity"
-              className="add-warehouse__position"
-              placeholder="Quantity"
-            />
             <div
+              style={{
+                display: this.state.status === "In Stock" ? "flex" : "none",
+                flexDirection: "column",
+              }}
+            >
+              <label htmlFor="quantity">Quantity</label>
+              <input
+                type="text"
+                name="quantity"
+                className="add-warehouse__position"
+                placeholder="Quantity"
+              />
+            </div>
+
+            {/* <div
               className="add-warehouse__error-validation"
               style={{ display: this.state.quantityError ? "flex" : "none" }}
             >
               <img src={errorIcon} alt="error icon" />
               This field is required!
-            </div>
+            </div> */}
 
             <label htmlFor="warehouse">Warehouse</label>
 
@@ -209,19 +216,15 @@ class AddNewInventoryItem extends React.Component {
               <option value="Boston">Boston</option>
               <option value="Montreal">Montreal</option>
             </select>
-
-            <div
-              className="add-warehouse__error-validation"
-              style={{ display: this.state.warehouseError ? "flex" : "none" }}
-            >
-              <img src={errorIcon} alt="error icon" />
-              This field is required!
-            </div>
           </div>
         </div>
         <div className="add-warehouse__btn-container">
-          <button className="add-warehouse__cancel-btn">Cancel</button>
-          <button className="add-warehouse__save-add-btn">+ Add Item</button>
+          <Link to="/inventory">
+            <button className="add-warehouse__cancel-btn">Cancel</button>
+          </Link>
+          <button type="submit" className="add-warehouse__save-add-btn">
+            + Add Item
+          </button>
         </div>
       </form>
     );
