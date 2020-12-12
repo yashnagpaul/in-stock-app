@@ -1,3 +1,3 @@
 # InStock
 
-<img src='./screen_shot'></img>
+<img src='./screen_shot.png'></img>
